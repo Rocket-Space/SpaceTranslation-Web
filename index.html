@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Translation | Seamless Desktop Translator</title>
+    <meta name="description" content="A seamless, system-wide translation tool for Windows, Mac, and Linux. Type, translate, and inject magically.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav>
+        <div class="logo">🚀 Space Translation</div>
+        <div class="links">
+            <a href="#features">Features</a>
+            <a href="#demo">Demo</a>
+            <a href="#install" class="btn-outline">Install Now</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Translate the Universe<br><span>Without Switching Apps</span></h1>
+        <p>A magical floating bubble that translates and injects your text directly into any chat, game, or document. Available for all operating systems.</p>
+        <a href="#install" class="btn-primary">Get Started Free</a>
+    </header>
+
+    <section id="demo" class="demo-section">
+        <h2>See the Magic</h2>
+        <div class="glass-card demo-card">
+            <!-- Pide al usuario que ponga su GIF aquí -->
+            <div class="placeholder-gif">
+                <p>🎬 <span>[Your Demo GIF goes here]</span></p>
+                <p class="sub">Show them how it translates and injects automatically!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="install" class="install-section">
+        <h2>Quick Installation</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'windows')">Windows</button>
+            <button class="tab-btn" onclick="openTab(event, 'mac')">macOS</button>
+            <button class="tab-btn" onclick="openTab(event, 'linux')">Linux</button>
+        </div>
+
+        <div class="glass-card tab-content active" id="windows">
+            <h3>Windows Setup</h3>
+            <ol>
+                <li>Download the latest release zip.</li>
+                <li>Extract and run <code>run.bat</code>.</li>
+                <li>Press <strong>Ctrl + Home</strong> anywhere to open the bubble.</li>
+                <li>Type your text and press <strong>Ctrl + End</strong> to inject!</li>
+            </ol>
+            <button class="btn-download">Download for Windows</button>
+        </div>
+
+        <div class="glass-card tab-content" id="mac">
+            <h3>macOS Setup</h3>
+            <ol>
+                <li>Download the `.app` or zip file.</li>
+                <li>Move it to your Applications folder.</li>
+                <li>Grant Accessibility permissions (System Settings > Privacy > Accessibility) so it can type for you.</li>
+                <li>Press <strong>Cmd + Home</strong> to open.</li>
+            </ol>
+            <button class="btn-download">Download for Mac</button>
+        </div>
+
+        <div class="glass-card tab-content" id="linux">
+            <h3>Linux Setup (Wayland & X11)</h3>
+            <ol>
+                <li>Clone the repository or download the source.</li>
+                <li>Install dependencies: <code>sudo pacman -S wl-clipboard wtype</code> (Arch)</li>
+                <li>Set up a Custom Shortcut in your DE (e.g. Plasma Settings) pointing to <code>run.sh</code>.</li>
+                <li>Assign it to <strong>Ctrl + Home</strong>.</li>
+            </ol>
+            <button class="btn-download">Source Code</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Space Translation © 2026. Built with Python and Qt.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
