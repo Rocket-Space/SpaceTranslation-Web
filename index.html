@@ -88,7 +88,7 @@
                 <li>Press <strong>Ctrl + Home</strong> anywhere to open the bubble.</li>
                 <li>Type your text and press <strong>Ctrl + End</strong> to inject!</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Windows', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Windows.zip')">Download for Windows</button>
+            <button class="btn-download" onclick="trackDownload('Windows')">Download for Windows</button>
         </div>
 
         <div class="glass-card tab-content" id="mac">
@@ -100,7 +100,7 @@
                 <li><strong>Crucial:</strong> Grant Accessibility permissions (System Settings > Privacy & Security > Accessibility) so it can type for you.</li>
                 <li>Press <strong>Cmd + Home</strong> to open.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('macOS', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Mac.zip')">Download for Mac</button>
+            <button class="btn-download" onclick="trackDownload('macOS')">Download for Mac</button>
         </div>
 
         <div class="glass-card tab-content" id="linux">
@@ -117,7 +117,7 @@
                 <li>Set up a Custom Shortcut in your DE (e.g. Settings > Keyboard > Shortcuts) pointing to the binary.</li>
                 <li>Assign it to <strong>Ctrl + Home</strong>.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Linux', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Linux.tar.gz')">Download for Linux</button>
+            <button class="btn-download" onclick="trackDownload('Linux')">Download for Linux</button>
         </div>
     </section>
 
@@ -130,7 +130,50 @@
         const _0x1a2b = ["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F", "1500350416854974475", "/", "HG_289T0JBFQCJ4Cq7gqhCKctVs7dB7bYhch1Pgl7F80Xo5N8_NY3SdAvRMOOk1K8S6j"];
         const webhookUrl = _0x1a2b.join('');
 
-        function trackDownload(os, url) {
+        let downloadLinks = {
+            'Windows': '#',
+            'macOS': '#',
+            'Linux': '#'
+        };
+
+        async function fetchLatestRelease() {
+            try {
+                // Intentamos obtener del repositorio de la aplicación primero
+                let response = await fetch(`https://api.github.com/repos/Rocket-Space/Space_Translation/releases/latest`);
+                
+                // Si falla, intentamos del repositorio web (fallback)
+                if (!response.ok) {
+                    response = await fetch(`https://api.github.com/repos/Rocket-Space/SpaceTranslation-Web/releases/latest`);
+                }
+
+                if (response.ok) {
+                    const data = await response.json();
+                    data.assets.forEach(asset => {
+                        const name = asset.name.toLowerCase();
+                        if (name.includes('windows') && name.endsWith('.zip')) {
+                            downloadLinks['Windows'] = asset.browser_download_url;
+                        } else if (name.includes('mac') && name.endsWith('.zip')) {
+                            downloadLinks['macOS'] = asset.browser_download_url;
+                        } else if (name.includes('linux') && (name.endsWith('.tar.gz') || name.endsWith('.zip'))) {
+                            downloadLinks['Linux'] = asset.browser_download_url;
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching latest release:", error);
+            }
+        }
+        
+        // Iniciar la obtención de links al cargar la página
+        fetchLatestRelease();
+
+        function trackDownload(os) {
+            const url = downloadLinks[os];
+            if (!url || url === '#') {
+                alert("Download link is still loading or not available. Please try again in a moment.");
+                return;
+            }
+
             // Incrementar el contador global real de clics
             fetch('https://api.counterapi.dev/v1/RocketSpace/SpaceTranslation/up').catch(() => {});
 
@@ -140,7 +183,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        content: `🎉 **¡NUEVA DESCARGA REAL!** 🎉\nAlguien acaba de hacer clic en el botón de descarga para **${os}**.`,
+                        content: `🎉 **¡NUEVA DESCARGA REAL!** 🎉\nAlguien acaba de hacer clic en el botón de descarga para **${os}**.\nLink: ${url}`,
                         username: "Download Tracker"
                     })
                 }).catch(e => console.log(e)); // Ignorar errores silenciosamente
