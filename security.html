@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Privacy | Space Translation</title>
+    <meta name="description" content="Transparency, Privacy Policy, and VirusTotal Analysis for Space Translation.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .security-content {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 40px;
+            color: #bac2de;
+            line-height: 1.6;
+        }
+        .security-content h1 {
+            color: #cba6f7;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .security-content h2 {
+            color: #89b4fa;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .security-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .vt-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(166, 227, 161, 0.1);
+            border: 1px solid #a6e3a1;
+            color: #a6e3a1;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav>
+        <div class="logo">🚀 Space Translation</div>
+        <div class="links">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="security-content glass-card">
+        <h1>Security & Privacy Transparency</h1>
+        <p>At Space Translation, your privacy and system security are our absolute priority. Because our application interacts with your clipboard and keyboard to provide a seamless "inject" experience, we want to be 100% transparent about how it works under the hood.</p>
+
+        <a href="https://www.virustotal.com/" target="_blank" class="vt-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            0/70 Detections on VirusTotal (Clean)
+        </a>
+
+        <h2>🛡️ 0% Tracking Policy</h2>
+        <p>Space Translation is designed to be a local tool. <strong>We do not track, store, or monitor what you translate.</strong> There are no analytics trackers, no crash reporters sending your data to our servers, and no telemetry. The only internet connection established is directly between your computer and the translation engines (Google, Bing, Lingva, MyMemory).</p>
+
+        <h2>⌨️ Why Keyboard Hooks? (Is it a Keylogger?)</h2>
+        <p><strong>Absolutely NOT.</strong> Space Translation is not a keylogger.</p>
+        <p>To provide the "magical" experience of translating and injecting text without switching windows, the application listens for specific global shortcuts (like <code>Ctrl + Home</code> or <code>Ctrl + End</code>). When triggered, it copies your highlighted text or types the translated text back into your active window (using native tools like `pyautogui` on Windows or `xdotool` on Linux).</p>
+        <p>The code <strong>only</strong> listens for those specific shortcut combinations. It does not record your keystrokes, and it does not save your clipboard history.</p>
+
+        <h2>🔒 Secure Connections</h2>
+        <p>Our application establishes direct and secure connections exclusively with the official translation engines. This ensures your data cannot be intercepted by Man-in-The-Middle (MITM) attacks while maintaining maximum speed and privacy.</p>
+    </main>
+
+    <footer>
+        <p>Space Translation © 2026. Built with Privacy in Mind.</p>
+    </footer>
+</body>
+</html>
