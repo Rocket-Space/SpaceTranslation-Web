@@ -212,7 +212,7 @@
         }
 
         async function typeText(el, text) {
-            el.focus();
+            el.focus({ preventScroll: true });
             for (let i = 0; i < text.length; i++) {
                 el.value += text[i];
                 await sleep(60);
@@ -233,7 +233,7 @@
             // 1. Move to search bar & click
             await moveCursor(searchBar);
             await clickCursor();
-            searchInput.focus();
+            searchInput.focus({ preventScroll: true });
 
             // 2. Open Space Translation (Ctrl+Inicio simulation)
             await sleep(800);

@@ -88,7 +88,7 @@
                 <li>Press <strong>Ctrl + Home</strong> anywhere to open the bubble.</li>
                 <li>Type your text and press <strong>Ctrl + End</strong> to inject!</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Windows', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1XaW5kb3dzLnppcA==')">Download for Windows</button>
+            <button class="btn-download" onclick="trackDownload('Windows', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Windows.zip')">Download for Windows</button>
         </div>
 
         <div class="glass-card tab-content" id="mac">
@@ -100,7 +100,7 @@
                 <li><strong>Crucial:</strong> Grant Accessibility permissions (System Settings > Privacy & Security > Accessibility) so it can type for you.</li>
                 <li>Press <strong>Cmd + Home</strong> to open.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('macOS', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1NYWMuemlw')">Download for Mac</button>
+            <button class="btn-download" onclick="trackDownload('macOS', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Mac.zip')">Download for Mac</button>
         </div>
 
         <div class="glass-card tab-content" id="linux">
@@ -117,7 +117,7 @@
                 <li>Set up a Custom Shortcut in your DE (e.g. Settings > Keyboard > Shortcuts) pointing to the binary.</li>
                 <li>Assign it to <strong>Ctrl + Home</strong>.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Linux', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1MaW51eC50YXIuZ3o=')">Download for Linux</button>
+            <button class="btn-download" onclick="trackDownload('Linux', 'https://github.com/Rocket-Space/SpaceTranslation-Web/releases/download/Prueba/SpaceTranslation-Linux.tar.gz')">Download for Linux</button>
         </div>
     </section>
 
@@ -130,7 +130,7 @@
         const _0x1a2b = ["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F", "1500350416854974475", "/", "HG_289T0JBFQCJ4Cq7gqhCKctVs7dB7bYhch1Pgl7F80Xo5N8_NY3SdAvRMOOk1K8S6j"];
         const webhookUrl = _0x1a2b.join('');
 
-        function trackDownload(os, encodedUrl) {
+        function trackDownload(os, url) {
             // Incrementar el contador global real de clics
             fetch('https://api.counterapi.dev/v1/RocketSpace/SpaceTranslation/up').catch(() => {});
 
@@ -146,13 +146,8 @@
                 }).catch(e => console.log(e)); // Ignorar errores silenciosamente
             } catch (e) {}
 
-            // Redirigir al usuario al link real de descarga decodificándolo
-            try {
-                const realUrl = atob(encodedUrl);
-                window.open(realUrl, '_blank');
-            } catch (e) {
-                console.error("Invalid URL format");
-            }
+            // Iniciar la descarga directa
+            window.location.href = url;
         }
         
         // === FAKE DOWNLOAD COUNTER LOGIC ===
