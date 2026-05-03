@@ -32,7 +32,7 @@
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span style="font-weight: 500;">Trusted by over <strong style="color: #cdd6f4; font-size: 16px;">1,223,242</strong> users worldwide</span>
+            <span style="font-weight: 500;">Trusted by over <strong id="downloadCounter" style="color: #cdd6f4; font-size: 16px;">1,223,242</strong> users worldwide</span>
         </div>
     </header>
 
@@ -111,6 +111,46 @@
             // o inmediatamente si lo prefieres.
             window.open(url, '_blank');
         }
+        // === FAKE DOWNLOAD COUNTER LOGIC ===
+        function initFakeCounter() {
+            const counterElement = document.getElementById('downloadCounter');
+            if (!counterElement) return;
+
+            // Base de descargas iniciales
+            const baseDownloads = 1223242;
+            
+            // Fecha de inicio imaginaria (ej. 1 de Enero de 2026)
+            const startDate = new Date('2026-01-01T00:00:00Z').getTime();
+            const now = Date.now();
+            
+            // Calculamos cuántos segundos han pasado
+            const secondsPassed = Math.floor((now - startDate) / 1000);
+            
+            // Asumimos que hay ~1 descarga cada 43 segundos promedio
+            const downloadsSinceStart = Math.floor(secondsPassed / 43);
+            
+            // Número actual real a mostrar
+            let currentDownloads = baseDownloads + downloadsSinceStart;
+            
+            // Función para dar formato con comas
+            const formatNumber = (num) => num.toLocaleString('en-US');
+            
+            // Actualizar el DOM inicial
+            counterElement.innerText = formatNumber(currentDownloads);
+
+            // Simular descargas en vivo mientras el usuario mira la página
+            setInterval(() => {
+                // Hay un 30% de probabilidad de que alguien "descargue" la app cada 3 segundos
+                if (Math.random() < 0.3) {
+                    currentDownloads += Math.floor(Math.random() * 2) + 1; // suma 1 o 2
+                    counterElement.innerText = formatNumber(currentDownloads);
+                }
+            }, 3000);
+        }
+
+        // Iniciar el contador al cargar
+        initFakeCounter();
+
     </script>
     <script src="script.js"></script>
 </body>
