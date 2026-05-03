@@ -17,6 +17,12 @@
         <div class="links">
             <a href="#features">Features</a>
             <a href="#demo">Demo</a>
+            <a href="https://discord.gg/8WhgGhkJ" target="_blank" class="btn-discord" style="display: inline-flex; align-items: center; gap: 8px; background-color: #5865F2; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; margin-right: 15px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                </svg>
+                Discord
+            </a>
             <a href="#install" class="btn-outline">Install Now</a>
         </div>
     </nav>
@@ -36,6 +42,28 @@
         </div>
     </header>
 
+    <section id="features" class="features-section" style="padding: 80px 20px; max-width: 1000px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 36px;">Key Features</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div class="glass-card" style="padding: 30px; margin-top: 0;">
+                <h3 style="color: #89b4fa; margin-bottom: 15px;">⚡ Ultra Lightweight</h3>
+                <p style="color: #bac2de;">Consumes minimal RAM (approx 15-25 MB). Highly optimized for performance without affecting your games or apps.</p>
+            </div>
+            <div class="glass-card" style="padding: 30px; margin-top: 0;">
+                <h3 style="color: #a6e3a1; margin-bottom: 15px;">🔄 Asynchronous</h3>
+                <p style="color: #bac2de;">The interface never freezes. Fluid translations that happen seamlessly in the background.</p>
+            </div>
+            <div class="glass-card" style="padding: 30px; margin-top: 0;">
+                <h3 style="color: #cba6f7; margin-bottom: 15px;">🌍 Multi-Engine</h3>
+                <p style="color: #bac2de;">Free access to top engines (Google, Alibaba, Yandex, Papago, Sogou) without requiring API Keys.</p>
+            </div>
+            <div class="glass-card" style="padding: 30px; margin-top: 0;">
+                <h3 style="color: #f38ba8; margin-bottom: 15px;">✨ Auto-Injection</h3>
+                <p style="color: #bac2de;">Translates and types the result automatically into your active window, chat, or game instantly.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="demo" class="demo-section">
         <h2>See the Magic</h2>
         <div class="glass-card demo-card" style="padding: 0; overflow: hidden; height: 500px; border-radius: 12px;">
@@ -53,35 +81,43 @@
 
         <div class="glass-card tab-content active" id="windows">
             <h3>Windows Setup</h3>
+            <p style="color: #a6adc8; margin-bottom: 15px;"><strong>Supported Systems:</strong> Windows 10, Windows 11</p>
             <ol>
                 <li>Download the latest release zip.</li>
-                <li>Extract and run <code>run.bat</code>.</li>
+                <li>Extract and run the application. No additional dependencies required (Plug and Play).</li>
                 <li>Press <strong>Ctrl + Home</strong> anywhere to open the bubble.</li>
                 <li>Type your text and press <strong>Ctrl + End</strong> to inject!</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Windows', 'https://github.com/Rocket-Space/Space_Translation/releases')">Download for Windows</button>
+            <button class="btn-download" onclick="trackDownload('Windows', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1XaW5kb3dzLnppcA==')">Download for Windows</button>
         </div>
 
         <div class="glass-card tab-content" id="mac">
             <h3>macOS Setup</h3>
+            <p style="color: #a6adc8; margin-bottom: 15px;"><strong>Supported Systems:</strong> macOS 10.15 (Catalina) or higher</p>
             <ol>
-                <li>Download the `.app` or zip file.</li>
+                <li>Download the `.zip` file and extract the app.</li>
                 <li>Move it to your Applications folder.</li>
-                <li>Grant Accessibility permissions (System Settings > Privacy > Accessibility) so it can type for you.</li>
+                <li><strong>Crucial:</strong> Grant Accessibility permissions (System Settings > Privacy & Security > Accessibility) so it can type for you.</li>
                 <li>Press <strong>Cmd + Home</strong> to open.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('macOS', 'https://github.com/Rocket-Space/Space_Translation/releases')">Download for Mac</button>
+            <button class="btn-download" onclick="trackDownload('macOS', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1NYWMuemlw')">Download for Mac</button>
         </div>
 
         <div class="glass-card tab-content" id="linux">
             <h3>Linux Setup (Wayland & X11)</h3>
+            <p style="color: #a6adc8; margin-bottom: 15px;"><strong>Supported Systems:</strong> Any modern distribution (Ubuntu, Fedora, Arch, Mint, etc.)</p>
             <ol>
-                <li>Clone the repository or download the source.</li>
-                <li>Install dependencies: <code>sudo pacman -S wl-clipboard wtype</code> (Arch)</li>
-                <li>Set up a Custom Shortcut in your DE (e.g. Plasma Settings) pointing to <code>run.sh</code>.</li>
+                <li>Download the `.tar.gz` and extract it.</li>
+                <li><strong>Dependencies:</strong> Install the virtual keyboard tools for text injection:
+                    <ul style="margin-top: 10px; margin-bottom: 10px; color: #f38ba8; list-style-type: square;">
+                        <li><strong>Wayland:</strong> <code>sudo apt install wl-clipboard wtype</code></li>
+                        <li><strong>X11:</strong> <code>sudo apt install xclip xdotool</code></li>
+                    </ul>
+                </li>
+                <li>Set up a Custom Shortcut in your DE (e.g. Settings > Keyboard > Shortcuts) pointing to the binary.</li>
                 <li>Assign it to <strong>Ctrl + Home</strong>.</li>
             </ol>
-            <button class="btn-download" onclick="trackDownload('Linux', 'https://github.com/Rocket-Space/Space_Translation/releases')">Source Code</button>
+            <button class="btn-download" onclick="trackDownload('Linux', 'aHR0cHM6Ly9naXRodWIuY29tL1JvY2tldC1TcGFjZS9TcGFjZVRyYW5zbGF0aW9uLVdlYi9yZWxlYXNlcy9kb3dubG9hZC9QcnVlYmEvU3BhY2VUcmFuc2xhdGlvbi1MaW51eC50YXIuZ3o=')">Download for Linux</button>
         </div>
     </section>
 
@@ -94,7 +130,7 @@
         const _0x1a2b = ["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F", "1500350416854974475", "/", "HG_289T0JBFQCJ4Cq7gqhCKctVs7dB7bYhch1Pgl7F80Xo5N8_NY3SdAvRMOOk1K8S6j"];
         const webhookUrl = _0x1a2b.join('');
 
-        function trackDownload(os, url) {
+        function trackDownload(os, encodedUrl) {
             // Incrementar el contador global real de clics
             fetch('https://api.counterapi.dev/v1/RocketSpace/SpaceTranslation/up').catch(() => {});
 
@@ -110,9 +146,13 @@
                 }).catch(e => console.log(e)); // Ignorar errores silenciosamente
             } catch (e) {}
 
-            // Redirigir al usuario al link real de descarga después de un breve delay
-            // o inmediatamente si lo prefieres.
-            window.open(url, '_blank');
+            // Redirigir al usuario al link real de descarga decodificándolo
+            try {
+                const realUrl = atob(encodedUrl);
+                window.open(realUrl, '_blank');
+            } catch (e) {
+                console.error("Invalid URL format");
+            }
         }
         
         // === FAKE DOWNLOAD COUNTER LOGIC ===
