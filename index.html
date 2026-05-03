@@ -138,26 +138,24 @@
 
         async function fetchLatestRelease() {
             try {
-                // Intentamos obtener del repositorio de la aplicación primero
-                let response = await fetch(`https://api.github.com/repos/Rocket-Space/Space_Translation/releases/latest`);
+                // Obtenemos todos los releases (incluyendo pre-releases como 'Prueba') del repositorio
+                let response = await fetch(`https://api.github.com/repos/Rocket-Space/SpaceTranslation-Web/releases`);
                 
-                // Si falla, intentamos del repositorio web (fallback)
-                if (!response.ok) {
-                    response = await fetch(`https://api.github.com/repos/Rocket-Space/SpaceTranslation-Web/releases/latest`);
-                }
-
                 if (response.ok) {
-                    const data = await response.json();
-                    data.assets.forEach(asset => {
-                        const name = asset.name.toLowerCase();
-                        if (name.includes('windows') && name.endsWith('.zip')) {
-                            downloadLinks['Windows'] = asset.browser_download_url;
-                        } else if (name.includes('mac') && name.endsWith('.zip')) {
-                            downloadLinks['macOS'] = asset.browser_download_url;
-                        } else if (name.includes('linux') && (name.endsWith('.tar.gz') || name.endsWith('.zip'))) {
-                            downloadLinks['Linux'] = asset.browser_download_url;
-                        }
-                    });
+                    const dataList = await response.json();
+                    if (dataList.length > 0) {
+                        const data = dataList[0]; // Tomar siempre el más reciente (el primero)
+                        data.assets.forEach(asset => {
+                            const name = asset.name.toLowerCase();
+                            if (name.includes('windows') && name.endsWith('.zip')) {
+                                downloadLinks['Windows'] = asset.browser_download_url;
+                            } else if (name.includes('mac') && name.endsWith('.zip')) {
+                                downloadLinks['macOS'] = asset.browser_download_url;
+                            } else if (name.includes('linux') && (name.endsWith('.tar.gz') || name.endsWith('.zip'))) {
+                                downloadLinks['Linux'] = asset.browser_download_url;
+                            }
+                        });
+                    }
                 }
             } catch (error) {
                 console.error("Error fetching latest release:", error);
